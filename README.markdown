@@ -1,4 +1,4 @@
-# tableexander: a jQuery plugin
+# tableexpander: a jQuery plugin
 
 Table Expander is a jQuery plugin that makes it easy to support expanding tables with "Show N more" functionality.
 
@@ -76,7 +76,7 @@ $('table.myNewTable').tableExpander({ filterClass: 'type_1'});
 
 ### moreId
 
-If you are expanding multiple tables on a single page, its important to distinguish which "Show More" is expanding which table. In that case you'll need to provide a name for that link:
+If you are expanding multiple tables on a single page, it's important to distinguish which "Show More" is expanding which table. In that case you'll need to provide a name for that link:
 
 ```html
 $('table.anotherNewTable').tableExpander({ moreId: 'newMore'});
