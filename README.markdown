@@ -41,9 +41,7 @@ This will add a link to the bottom of your list object:
 <table class="expander">
   ...your table info goes here as usual...
 </table>
-<div class="more_activity">
-  <a href="#" name class="expander-more">Show N More</span>
-</div>
+<a href="#" name class="expander-more">Show N More</span>
 ```
 
 where N is at most 10.
