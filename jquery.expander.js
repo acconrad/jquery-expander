@@ -42,9 +42,9 @@
         currExpandSize = expandDiff < expandSize ? expandDiff : expandSize
         
         if ($more.hasClass('expander-more'))
-          $more.html('Show ' + currExpandSize + ' More').removeClass('hidden').attr('name', filterName)
+          $more.html('Show ' + currExpandSize + ' More').removeClass('hidden').attr('name', settings.filter)
         else
-          $this.after('<a href="#" name="' + filterName + '" class="expander-more">Show ' + currExpandSize + ' More</a>')
+          $this.after('<a href="#" name="' + settings.filter + '" class="expander-more">Show ' + currExpandSize + ' More</a>')
 
       } else if (expandSize >= totalRows && $more.hasClass('expander-more')) {
 
