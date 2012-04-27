@@ -8,18 +8,16 @@
  * For usage and examples, visit:
  * http://github.com/acconrad/jquery-expander
  *
- * Licensed under the MIT:
- * http://www.opensource.org/licenses/mit-license.php
- *
  * Copyright (c) 2012, Adam Conrad (acconrad -[at]- gmail [*dot*] com)
+ * Licensed under the MIT, GPL licenses
  */
 (function ($) {
   "use strict";
 
   $.fn.expander = function (options) {
 
-    var settings = $.extend({ filter : null }, options)
-      , filterName = settings.filter ? '.' + settings.filter : ''
+    var settings = $.extend({}, $.fn.expander.options, options)
+      , filterName = settings.filter === '' ? settings.filter : '.' + settings.filter
       , expandSize = 10
 
     return this.each(function (index) {
@@ -27,24 +25,26 @@
       var $this = $(this)
         , $more = $this.next()
         , isTable = $this.is('table')
-        , totalRows = isTable ? $(this).children('tbody').children(filterName).length : $this.children(filterName).length
+        , totalRows = isTable ? $this.children('tbody').children(filterName).length : $this.children(filterName).length
         , currExpandSize
         , expandDiff
 
       if (expandSize < totalRows) {
 
-        if (isTable)
+        if (isTable) {
           $this.children('tbody').children(filterName + ':gt(' + (expandSize - 1) + ')').addClass('hidden')
-        else
+        } else {
           $this.children(filterName + ':gt(' + (expandSize - 1) + ')').addClass('hidden')
-        
+        }
+
         expandDiff = totalRows - expandSize
         currExpandSize = expandDiff < expandSize ? expandDiff : expandSize
         
-        if ($more.hasClass('expander-more'))
-          $more.html('Show ' + currExpandSize + ' More').removeClass('hidden').attr('name', filterName)
-        else
-          $this.after('<a href="#" name="' + filterName + '" class="expander-more">Show ' + currExpandSize + ' More</a>')
+        if ($more.hasClass('expander-more')) {
+          $more.html('Show ' + currExpandSize + ' More').removeClass('hidden').attr('name', settings.filter)
+        } else {
+          $this.after('<a href="#" name="' + settings.filter + '" class="expander-more">Show ' + currExpandSize + ' More</a>')
+        }
 
       } else if (expandSize >= totalRows && $more.hasClass('expander-more')) {
 
@@ -56,13 +56,15 @@
 
   }
 
+  $.fn.expander.options = { filter: '' }
+
   $(document).on('click', '.expander-more', function (event) {
 
     event.preventDefault()
 
     var $target = $(event.target)
       , $list = $target.prev()
-      , targetFilter = $target.attr('name')
+      , targetFilter = typeof $target.attr('name') === 'undefined' ? '' : '.' + $target.attr('name')
       , listIsTable = $list.is('table')
       , listRows = listIsTable ? $list.children('tbody').children(targetFilter).length : $list.children(targetFilter).length
       , listVisibleRows = listIsTable ? (listRows - $list.children('tbody').children('.hidden').length) : (listRows - $list.children('.hidden').length)
@@ -94,4 +96,4 @@
 
   })
 
-})( jQuery )
+}(jQuery))

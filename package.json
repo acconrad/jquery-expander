@@ -1,0 +1,32 @@
+{
+  "name": "jquery.expander",
+  "title": "jQuery Expander",
+  "description": "Expander is a jQuery plugin that makes it easy to support expanding tables with Show N More functionality.",
+  "version": "0.2.5",
+  "homepage": "https://github.com/acconrad/jquery-expander",
+  "author": {
+    "name": "Adam Conrad",
+    "email": "adam@starstreet.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acconrad/jquery-expander"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "GPL",
+      "url": "/blob/master/LICENSE-GPL"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~1.5"
+  },
+  "keywords": []
+}
