@@ -13,7 +13,7 @@ First, load jQuery and the plugin:
 
 ```html
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script src="jquery.expander.js" type="text/javascript"></script>
+<script src="jquery.expander.min.js" type="text/javascript"></script>
 ```
 
 Second, make sure you have a class in your Stylesheet to handle hidden elements:
