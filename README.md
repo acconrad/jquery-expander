@@ -4,6 +4,7 @@ Expander is a jQuery plugin that makes it easy to support expanding long lists, 
 
 ## Changelog
 
+* Apr 27, 2012 (0.2.5): Included Grunt for building, unit testing and minification.
 * Apr 23, 2012 (0.2.5): Major plugin overhaul. Supports all DOM tags with at least one child element. Packaged with minified script.
 * Feb 08, 2012 (0.1.0): Initial plugin release.
 
