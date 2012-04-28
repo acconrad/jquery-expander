@@ -23,11 +23,56 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.min.js'
       }
     },
+    cssmin: {
+      dist: {
+        src: ['src/**/*.css', 'test/**/*.css'],
+        dest: 'dist/<%= pkg.name %>.min.css'
+      }
+    },
     qunit: {
       files: ['test/**/*.html']
     },
+    jasmine: {
+      all: ['specs/specrunner.html']
+    },
     lint: {
       files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']
+    },
+    csslint: {
+      base_theme: {
+        src: ['src/**/*.css', 'test/**/*.css'],
+        rules: {
+          "adjoining-classes": false,
+          "box-model": true,
+          "box-sizing": "warning",
+          "compatible-vendor-prefixes": "warning",
+          "display-property-grouping": true,
+          "duplicate-background-images": "warning",
+          "duplicate-properties": true,
+          "empty-rules": true,
+          "errors": true,
+          "fallback-colors": "warning",
+          "floats": "warning",
+          "font-faces": "warning",
+          "font-sizes": "warning",
+          "gradients": "warning",
+          "ids": "warning",
+          "import": "warning",
+          "important": "warning",
+          "known-properties": true,
+          "outline-none": "warning",
+          "overqualified-elements": "warning",
+          "qualified-headings": "warning",
+          "regex-selectors": "warning",
+          "rules-count": "warning",
+          "shorthand": "warning",
+          "text-indent": "warning",
+          "unique-headings": "warning",
+          "universal-selector": "warning",
+          "vendor-prefix": true,
+          "zero-units": "warning"
+        }
+      }
     },
     watch: {
       files: '<config:lint.files>',
@@ -57,6 +102,8 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint qunit concat min');
+  grunt.loadNpmTasks('grunt-css');
+  grunt.loadNpmTasks('grunt-jasmine-task');
+  grunt.registerTask('default', 'lint qunit concat min cssmin csslint');
 
 };

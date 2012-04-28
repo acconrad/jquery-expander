@@ -1,4 +1,4 @@
-/*! jQuery Expander - v0.2.5 - 2012-04-27
+/*! jQuery Expander - v0.2.5 - 2012-04-28
 * https://github.com/acconrad/jquery-expander
 * Copyright (c) 2012 Adam Conrad; Licensed MIT, GPL */
 
