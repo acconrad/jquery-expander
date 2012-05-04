@@ -1,4 +1,4 @@
-/*! jQuery Expander - v0.2.5 - 2012-04-28
+/*! jQuery Expander - v0.2.5 - 2012-05-04
 * https://github.com/acconrad/jquery-expander
 * Copyright (c) 2012 Adam Conrad; Licensed MIT, GPL */
 
@@ -55,7 +55,7 @@
 
     var $target = $(event.target)
       , $list = $target.prev()
-      , targetFilter = typeof $target.attr('name') === 'undefined' ? '' : '.' + $target.attr('name')
+      , targetFilter = $target.attr('name') === '' ? '' : '.' + $target.attr('name')
       , listIsTable = $list.is('table')
       , listRows = listIsTable ? $list.children('tbody').children(targetFilter).length : $list.children(targetFilter).length
       , listVisibleRows = listIsTable ? (listRows - $list.children('tbody').children('.hidden').length) : (listRows - $list.children('.hidden').length)

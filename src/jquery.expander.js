@@ -64,7 +64,7 @@
 
     var $target = $(event.target)
       , $list = $target.prev()
-      , targetFilter = typeof $target.attr('name') === 'undefined' ? '' : '.' + $target.attr('name')
+      , targetFilter = $target.attr('name') === '' ? '' : '.' + $target.attr('name')
       , listIsTable = $list.is('table')
       , listRows = listIsTable ? $list.children('tbody').children(targetFilter).length : $list.children(targetFilter).length
       , listVisibleRows = listIsTable ? (listRows - $list.children('tbody').children('.hidden').length) : (listRows - $list.children('.hidden').length)
